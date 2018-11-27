@@ -28,8 +28,6 @@ Express.js
 
 ## Getting started
 
-Open a command prompt or shell terminal after install node.js and execute:
-
 ```
 npm install
 ```
@@ -37,15 +35,19 @@ npm install
 ## Running
 
 ```
-node index.js
+npm start
 ```
 
-Use a software like postman or a simple CURL on the terminal to send the requests to the base url http://localhost:8000 with one of the below supported endpoints:
+or
+
+```
+node app.js
+```
+
+## Endpoint documentation
 
 - GET
-/block/{BLOCK_HEIGHT}
-
-example:
+/block/:height
 
 ```
  curl http://localhost:8000/block/0
@@ -54,8 +56,6 @@ example:
 - POST
 /block
 
-example:
-
 ```
-curl -X "POST" "http://localhost:8000/block" -H 'Content-Type: application/json' -d $'{"body":"block body contents"}'
+curl -X "POST" "http://localhost:8000/block" -H 'Content-Type: application/json' -d '{"body":"block body contents"}'
 ```
