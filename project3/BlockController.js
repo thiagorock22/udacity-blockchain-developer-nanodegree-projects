@@ -49,6 +49,13 @@ class BlockController {
      */
     postNewBlock() {
         this.app.post("/block", (req, res) => {
+
+            if (req.body.body === '' || !req.body.hasOwnProperty('body')) {
+                res.status(400).json({
+                  error: "The content is required."
+                })
+                return;
+            }
             
             this.chain.addBlock(new Block.Block(req.body.body)).then((block) => {
                 console.log(JSON.stringify(block))
